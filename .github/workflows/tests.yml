@@ -49,3 +49,25 @@ jobs:
 
     - name: Executar o Teste
       run: npm test
+
+    - name: Salvando Relatório Mochawesome
+      uses: actions/upload-artifact@v4
+      if: ${{ always() }}
+      with:
+        name: Relatório Mochawesome
+        path: ./reports/mochawesome/
+
+    - name: Salvando Relatório JUnit
+      uses: actions/upload-artifact@v4
+      if: ${{ always() }}
+      with:
+        name: Relatório JUnit
+        path: ./reports/junit/test-results.xml
+
+    - name: Publicar Relatório JUnit na UI do GitHub Actions
+      uses: dorny/test-reporter@v3
+      if: ${{ always() }}
+      with:
+        name: Testes Unitários
+        path: reports/junit/test-results.xml
+        reporter: java-junit
