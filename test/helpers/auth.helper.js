@@ -19,14 +19,20 @@ export async function comTokenAdmin() {
 
 }
 
-export async function gerarToken(dados) {
+export async function comTokenFabio() {
+  if (!tokenEmCache) { 
     const loginResposta = await api()
-      .post('/api/auth/login')
-      .set('Content-Type', 'application/json')
-      .send(dados);
+        .post('/api/auth/login')
+        .set('Content-Type', 'application/json')
+        .send({
+          email: process.env.FABIO_EMAIL,
+          senha: process.env.FABIO_SENHA
+        });
 
-    return loginResposta.body.token;
+      tokenEmCache = loginResposta.body.token;
+  }
+  return `Bearer ${tokenEmCache}`;
 
 }
 
-export default { comTokenAdmin, gerarToken };
+export default { comTokenAdmin, comTokenFabio };

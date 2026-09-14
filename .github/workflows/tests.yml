@@ -1,40 +1,33 @@
-name: Testes de API
+name: Execução de Testes API Rest
 
 on:
+  workflow_dispatch:
   push:
-    branches: [main]
+    branches: ["main"]
   pull_request:
-    branches: [main]
+    branches: ["main"]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
-    services:
-      mongodb:
-        image: mongo:7
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd "mongosh --eval 'db.runCommand({ ping: 1 })'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+    steps: 
+    - name: fazer checkout do repositório
+      uses: actions/checkout@v4
 
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
+    - name: Definir versão do node.jobs
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20.x"
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
+    - name: Instalar Dependências
+      run: npm install
 
-      - name: Instalar dependências
-        run: npm ci
+    - name: Iniciar API
+      run: npm start &
 
-      - name: Executar testes
-        run: npm test
-        env:
-          MONGODB_URI: mongodb://127.0.0.1:27017/gestao-de-alunos-test
+    - name: Aguardar a API Iniciar
+      run: sleep 10
+
+    - name: Executar o Teste
+      run: npm test

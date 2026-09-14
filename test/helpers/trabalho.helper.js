@@ -1,15 +1,14 @@
 import { api } from './api.helper.js'
 
-export async function criarAluno(token, dadosAluno) {
+export async function entregarTrabalho(alunoId, token, dadosTrabalho) {
     const resposta = await api()
-      .post('/api/admin/alunos')
+      .post(`/api/alunos/${alunoId}/trabalhos`)
       .set('Content-Type', 'application/json')
       .set('Authorization', await token)
-      .send(dadosAluno);
+      .send(dadosTrabalho);
 
     return resposta;
 
 }
 
-export default { criarAluno };
-
+export default { entregarTrabalho };

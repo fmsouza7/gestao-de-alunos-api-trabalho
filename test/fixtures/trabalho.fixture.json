@@ -1,0 +1,22 @@
+[
+    {
+        "testTitle": "Validar que ao cadastrar o aluno Fabio ele possa logar e realizar a entrega de um trabalho",
+        "dadosAluno":{
+            "nome": "Fabio Martins de Souza",
+            "email": "fmsouza@example.com",
+            "matricula": "F19800518",
+            "senha": "fms123456"
+        },
+        "dadosDisciplina":{
+            "nome": "Automação de Testes API Rest", 
+            "codigo": "AUTAPIREST",
+            "cargaHoraria": 20
+        },
+        "dadosTrabalho":{
+            "disciplinaId": "", 
+            "titulo": "Trabalho final do módulo 07", 
+            "descricao": "Entrega do Trabalho de conclusão do módulo 07 - Automação com API Rest"
+        },
+        "statusCodeEsperado": 201
+    }    
+]
