@@ -22,6 +22,13 @@ jobs:
           --health-timeout=5s
           --health-retries=5
 
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+      ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+      ADMIN_SENHA: ${{ secrets.ADMIN_SENHA }}
+      FABIO_EMAIL: ${{ secrets.FABIO_EMAIL }}
+      FABIO_SENHA: ${{ secrets.FABIO_SENHA }}
+
     steps: 
     - name: fazer checkout do repositório
       uses: actions/checkout@v4
