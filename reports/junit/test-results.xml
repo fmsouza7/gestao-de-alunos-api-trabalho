@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="1.760" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-09-14T03:45:08" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Fluxo de Entrega de Trabalho realizada pelo aluno" timestamp="2026-09-14T03:45:08" tests="1" file="C:\Estudos\Pos Automação\Modulo07\gestao-de-alunos-api-trabalho\test\External\fluxoEntregaTrabalho.test.js" time="1.740" failures="0">
+    <testcase name="Fluxo de Entrega de Trabalho realizada pelo aluno Validar que ao cadastrar o aluno Fabio ele possa logar e realizar a entrega de um trabalho" time="0.690" classname="Validar que ao cadastrar o aluno Fabio ele possa logar e realizar a entrega de um trabalho">
+    </testcase>
+  </testsuite>
+</testsuites>
