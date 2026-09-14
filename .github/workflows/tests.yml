@@ -45,7 +45,7 @@ jobs:
       run: npm start &
 
     - name: Aguardar a API Iniciar
-      run: sleep 10
+      run: sleep 5
 
     - name: Executar o Teste
       run: npm test
